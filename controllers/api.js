@@ -8,7 +8,7 @@ exports.getMarsInformation = (req, res, next) => {
             const sol_keys = response.data['sol_keys'];
             const lastSol = sol_keys[sol_keys.length - 1];
 
-            const informationToRet = {
+            const informationsToRet = {
                 sol: lastSol,
                 av: Math.round(response.data[lastSol]['AT']['av'] * 10) / 10,
                 mn: Math.round(response.data[lastSol]['AT']['mn'] * 10) / 10,
@@ -16,7 +16,7 @@ exports.getMarsInformation = (req, res, next) => {
                 LastUTC: response.data[lastSol]['Last_UTC'].substring(0, 10)
             };
 
-            res.status(200).send(informationToRet);
+            res.status(200).send(informationsToRet);
         })
         .catch(e => {
             console.log(e);

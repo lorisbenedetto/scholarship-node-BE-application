@@ -4,6 +4,6 @@ const apiController = require('../controllers/api');
 
 const router = express.Router();
 
-router.get('/mars-information', apiController.getMarsInformation);
+router.get('/mars-informations', apiController.getMarsInformation);
 
 module.exports = router;
