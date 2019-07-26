@@ -22,3 +22,15 @@ exports.getMarsInformation = (req, res, next) => {
             console.log(e);
         })
 };
+
+exports.postChangeIndex = (req, res, next) => {
+    res.status(200).send({value: changeTemperature(req.body.indexOfTemperature, req.body.temperature)});
+};
+
+const changeTemperature = (index, value) => {
+    if(index === 'C') {
+        return Math.round((value * 9/5) + 32);
+    } else {
+        return Math.round( (value - 32) * 5/9);
+    }
+};
